@@ -18,6 +18,26 @@ router.post("/", async (req, res) => {
     });
 
     const savedEvent = await newEvent.save();
+
+    //envoyer sur Discord
+    const message = {
+      content: `🛡️ Nouvelle quête proposée !\n**Titre:** ${
+        newEvent.title
+      }\n**Organisateur:** ${newEvent.organizerName}\n**Lieu:** ${
+        newEvent.location
+      }\n**Date:** ${new Date(
+        newEvent.date
+      ).toLocaleString()}\n\n[Inscrivez-vous ici](https://tonsite.com/events/${
+        newEvent.id
+      })`,
+    };
+
+    await fetch(DISCORD_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(message),
+    });
+
     res.status(201).json(savedEvent);
   } catch (err) {
     console.error(err);

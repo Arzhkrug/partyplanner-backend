@@ -5,7 +5,7 @@ const eventSchema = new mongoose.Schema({
   description: String,
   date: { type: Date, required: true },
   location: String,
-  organizerName: { type: String, required: true }, // simple string
+  organizerName: { type: String, required: true },
   participants: [
     {
       pseudo: String,
@@ -13,7 +13,7 @@ const eventSchema = new mongoose.Schema({
       niveau: Number,
     },
   ],
-  loot: [String], // liste de trésors
+  loot: [String],
 });
 
 module.exports = mongoose.model("Event", eventSchema);
