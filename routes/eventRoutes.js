@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Event = require("../models/Event");
+const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL;
 
 // 👉 POST /api/events (créer une soirée)
 router.post("/", async (req, res) => {
