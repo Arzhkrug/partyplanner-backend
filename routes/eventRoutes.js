@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
         newEvent.location
       }\n**Date:** ${new Date(
         newEvent.date
-      ).toLocaleString()}\n\n[Inscrivez-vous ici](https://partyplanner-frontend.vercel.app/events/${
+      ).toLocaleString()}\n\n[Inscrivez-vous ici](https://partyplanner-frontend.vercel.app/event/${
         newEvent.id
       })`,
     };
